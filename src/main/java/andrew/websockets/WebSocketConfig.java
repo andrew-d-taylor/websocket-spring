@@ -15,7 +15,7 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
 
     private static final String TOPIC_DEST_PREFIX = "/topic";
     private static final String APPLICATION_DEST_PREFIX = "/app";
-    private static final String STOMP_REGISTRY_ENDPOINT = "/andrew-stomp-endpoint";
+    private static final String STOMP_REGISTRY_ENDPOINT = "/websocket-stomp-endpoint";
 
     @Override
     public void configureMessageBroker(MessageBrokerRegistry registry) {
