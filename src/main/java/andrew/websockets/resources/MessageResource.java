@@ -14,6 +14,9 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Controller that handles both REST requests and STOMP subscriptions for Messages
+ */
 @Controller
 @CrossOrigin //allows any origin
 public class MessageResource {
@@ -45,7 +48,7 @@ public class MessageResource {
         return message;
     }
 
-    @RequestMapping("/messages", method = RequestMethod.GET)
+    @RequestMapping(path = "/messages", method = RequestMethod.GET)
     public @ResponseBody List<Message> getMessages() {
         return messages;
     }

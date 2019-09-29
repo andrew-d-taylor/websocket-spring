@@ -12,14 +12,4 @@ public class AndrewWebSocketsApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(AndrewWebSocketsApplication.class, args);
 	}
-
-	public WebMvcConfigurer corsConfigurer() {
-		return new WebMvcConfigurer() {
-			@Override
-			public void addCorsMappings(CorsRegistry registry) {
-				registry.addMapping("/andrew-stomp-endpoint/*").allowedOrigins("http://localhost:3000");
-			}
-		};
-	}
-
 }

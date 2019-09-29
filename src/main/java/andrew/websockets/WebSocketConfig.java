@@ -6,18 +6,25 @@ import org.springframework.web.socket.config.annotation.EnableWebSocketMessageBr
 import org.springframework.web.socket.config.annotation.StompEndpointRegistry;
 import org.springframework.web.socket.config.annotation.WebSocketMessageBrokerConfigurer;
 
+/**
+ * Websocket configuration for the application
+ */
 @Configuration
 @EnableWebSocketMessageBroker
 public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
 
+    private static final String TOPIC_DEST_PREFIX = "/topic";
+    private static final String APPLICATION_DEST_PREFIX = "/app";
+    private static final String STOMP_REGISTRY_ENDPOINT = "/andrew-stomp-endpoint";
+
     @Override
     public void configureMessageBroker(MessageBrokerRegistry registry) {
-        registry.enableSimpleBroker("/topic");
-        registry.setApplicationDestinationPrefixes("/app");
+        registry.enableSimpleBroker(TOPIC_DEST_PREFIX);
+        registry.setApplicationDestinationPrefixes(APPLICATION_DEST_PREFIX);
     }
 
     @Override
     public void registerStompEndpoints(StompEndpointRegistry registry) {
-        registry.addEndpoint("/andrew-stomp-endpoint").setAllowedOrigins("*").withSockJS();
+        registry.addEndpoint(STOMP_REGISTRY_ENDPOINT+"/*").setAllowedOrigins("*").withSockJS();
     }
 }
