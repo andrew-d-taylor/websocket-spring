@@ -14,3 +14,7 @@ The app also offers the following REST endpoints:
 
 - `GET "/messages"` - returns the set of existing messages<br>
 - `POST "/messages"` - creates a new message from the body of the request
+
+You can also run the application as a Docker container:
+- `docker build -t websockets-spring/the-image .` to build the image
+- `docker run -p 8080:8080 websockets-spring/the-image` to run the image as a container
